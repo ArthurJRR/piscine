@@ -13,12 +13,14 @@ public class Board : MonoBehaviour {
     public GameObject tile0Prefab;
     public GameObject tile1Prefab;
     public GameObject tile2Prefab;
+    public GameObject WaterJeu;
     //public int [,] Map = Map.map1;
     Map map = new Map();
     
 
     // Use this for initialization
     void Start () {
+        GameObject waterObject = (GameObject)Instantiate(WaterJeu);
         int id = 0;
 
         /*for (int i = 0; i <= size; i++)
