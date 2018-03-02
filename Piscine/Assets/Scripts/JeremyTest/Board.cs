@@ -10,6 +10,9 @@ public class Board : MonoBehaviour {
     public GameObject Water1Prefab;
     public GameObject Water0Prefab;
     public GameObject Water2Prefab;
+    public GameObject tile0Prefab;
+    public GameObject tile1Prefab;
+    public GameObject tile2Prefab;
     //public int [,] Map = Map.map1;
     Map map = new Map();
     
@@ -18,7 +21,7 @@ public class Board : MonoBehaviour {
     void Start () {
         int id = 0;
 
-        for (int i = 0; i <= size; i++)
+        /*for (int i = 0; i <= size; i++)
         {
             for (int j = 0; j <= size; j++)
             {
@@ -52,10 +55,49 @@ public class Board : MonoBehaviour {
                     Tile tile = TileObject.AddComponent<Tile>();
                     Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
                     TileObject.transform.position = new Vector3(i, 0, j);
+                }*/
+
+        for (int i = 0; i <= size; i++)
+        {
+            for (int j = 0; j <= size; j++)
+            {
+                id++;
+                int creaTile = Random.Range(0, 4);
+                creaTile = map.map1[j, i];
+                if (creaTile == 0)
+                {
+                    GameObject TileObject = (GameObject)Instantiate(DirtPrefab);
+                    Tile tile = TileObject.AddComponent<Tile>();
+                    Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
+                    TileObject.transform.position = new Vector3(i, 0, j);
                 }
-                
-                
-                
+                if (creaTile == 1)
+                {
+                    GameObject TileObject = (GameObject)Instantiate(tile0Prefab);
+                    Tile tile = TileObject.AddComponent<Tile>();
+                    Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
+                    float ztile0 = (float)-0.125;
+                    TileObject.transform.position = new Vector3(i, ztile0, j);
+                }
+                if (creaTile == 2)
+                {
+                    GameObject TileObject = (GameObject)Instantiate(tile1Prefab);
+                    Tile tile = TileObject.AddComponent<Tile>();
+                    Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
+                    float ztile1 = (float)-0.25;
+                    TileObject.transform.position = new Vector3(i, ztile1, j);
+                }
+                if (creaTile == 3)
+                {
+                    GameObject TileObject = (GameObject)Instantiate(tile2Prefab);
+                    Tile tile = TileObject.AddComponent<Tile>();
+                    Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
+                    float ztile2 = (float)-0.375;
+                    TileObject.transform.position = new Vector3(i, ztile2, j);
+                }
+
+
+
 
 
             }

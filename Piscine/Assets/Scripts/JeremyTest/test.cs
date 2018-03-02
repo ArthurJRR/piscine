@@ -15,6 +15,9 @@ public class test : MonoBehaviour {
         board.Water1Prefab = (GameObject)Resources.Load("Water1");
         board.Water0Prefab = (GameObject)Resources.Load("Water0");
         board.Water2Prefab = (GameObject)Resources.Load("Water2");
+        board.tile1Prefab = (GameObject)Resources.Load("tile1");
+        board.tile0Prefab = (GameObject)Resources.Load("tile0");
+        board.tile2Prefab = (GameObject)Resources.Load("tile2");
     }
 	
 	// Update is called once per frame
