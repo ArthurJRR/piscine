@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class test : MonoBehaviour {
 
@@ -19,10 +20,24 @@ public class test : MonoBehaviour {
         board.tile0Prefab = (GameObject)Resources.Load("tile0");
         board.tile2Prefab = (GameObject)Resources.Load("tile2");
         board.WaterJeu = (GameObject)Resources.Load("WaterJeu");
+
+        //Instanciation d'un personnage
+        createUnit();
     }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+
+    public void createUnit()
+    {
+        GameObject unitTest = (GameObject)Resources.Load("Units/braid-run-sprite_0");
+        Unit unit = unitTest.AddComponent<Unit>();
+        unit.setSprite(unitTest.GetComponent<SpriteRenderer>());
+        unit.setAnimator(unitTest.GetComponent<Animator>());
+        Unit unitInstance = Instantiate<Unit>(unit);
+        BoardManager.getInstance().getListUnits().Add(unitInstance);
+    }
 }
