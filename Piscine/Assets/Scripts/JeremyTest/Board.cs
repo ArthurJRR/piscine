@@ -5,7 +5,7 @@ using System.Collections;
 public class Board : MonoBehaviour {
 
     public int size = 8; // fait actuelement du 9x9
-    public Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
+    //public Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
     public GameObject DirtPrefab;
     public GameObject Water1Prefab;
     public GameObject Water0Prefab;
@@ -64,8 +64,7 @@ public class Board : MonoBehaviour {
             for (int j = 0; j <= size; j++)
             {
                 id++;
-                int creaTile = Random.Range(0, 4);
-                creaTile = map.map1[j, i];
+                int creaTile = map.map1[j, i];
                 if (creaTile == 0)
                 {
                     GameObject TileObject = (GameObject)Instantiate(DirtPrefab);
