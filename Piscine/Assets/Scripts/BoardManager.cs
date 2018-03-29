@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardManager {
-
     private static BoardManager boardInstance = null;
     private List<Unit> listUnits;
 

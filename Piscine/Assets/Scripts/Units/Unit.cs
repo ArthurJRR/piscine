@@ -5,10 +5,11 @@ using UnityEngine;
 public class Unit : MonoBehaviour {
 
     protected string unitName;
-    protected int hp;
-    protected int atk;
+    public int hp;
+    public int atk;
     protected SpriteRenderer sprite;
     protected Animator animator;
+    protected string proprietaire;
     //private Joueur proprietaire; //TODO à coder plus tard
 
 
@@ -31,6 +32,31 @@ public class Unit : MonoBehaviour {
     public void setAnimator(Animator anim)
     {
         this.animator = anim;
+    }
+
+    public string getProprio()
+    {
+        return proprietaire;
+    }
+
+    public void SetHp(int health)
+    {
+        this.hp = health;
+    }
+
+    public int GetHp()
+    {
+        return hp;
+    }
+
+    public void SetAtk(int atk)
+    {
+        this.atk = atk;
+    }
+
+    public void die()
+    {
+        Debug.Log("HARG JE SUIS MORT");
     }
 
 }

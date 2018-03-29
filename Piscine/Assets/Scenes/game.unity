@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5761c3312d9797449a405f427ac76b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testTrigger: z
   board: {fileID: 0}
 --- !u!4 &1563911259
 Transform:
