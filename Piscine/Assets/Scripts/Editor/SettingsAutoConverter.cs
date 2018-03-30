@@ -43,8 +43,8 @@ public class SettingsAutoConverter : AssetPostprocessor
         {
             UnitData unitData = ScriptableObject.CreateInstance<UnitData>();
             unitData.Load(readText[i]);
+            Debug.Log(unitData.name);
             string fileName = string.Format("{0}{1}.asset", filePath, unitData.name);
-
             AssetDatabase.CreateAsset(unitData, fileName);
         }
     }

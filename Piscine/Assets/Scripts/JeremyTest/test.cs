@@ -70,7 +70,7 @@ public class test : MonoBehaviour {
     {
 
         UnitData test = Resources.Load<UnitData>("Enemies/" + n);
-        GameObject unit = test.Load(n);
+        GameObject unit = test.retrieve(n);
         //On load le sprite et l'animation pour l'unité
         GameObject prefab = (GameObject)Resources.Load("Anim/" + n);
         Animator anim = prefab.GetComponent<Animator>();

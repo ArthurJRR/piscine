@@ -317,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testTrigger: z
   board: {fileID: 0}
+  list: []
 --- !u!4 &1563911259
 Transform:
   m_ObjectHideFlags: 0

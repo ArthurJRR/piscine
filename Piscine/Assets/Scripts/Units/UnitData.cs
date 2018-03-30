@@ -10,13 +10,16 @@ public class UnitData : ScriptableObject
     public int atk;
     //public string description;
 
-    public GameObject Load(string line)
+    public void Load(string line)
     {
-        /*string[] elements = line.Split(',');
+        string[] elements = line.Split(',');
         name = elements[0];
         hp = Convert.ToInt32(elements[1]);
         atk = Convert.ToInt32(elements[2]);
-        //description = Convert.ToString(elements[3]);*/
+    }
+
+    public GameObject retrieve(string line)
+    {
         GameObject obj = new GameObject();
         obj.AddComponent<Unit>();
         Unit unit = obj.GetComponent<Unit>();
