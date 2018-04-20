@@ -23,6 +23,8 @@ public class test : MonoBehaviour {
         board.tile0Prefab = (GameObject)Resources.Load("tile0");
         board.tile2Prefab = (GameObject)Resources.Load("tile2");
         board.WaterJeu = (GameObject)Resources.Load("WaterJeu");
+        board.casePrefab = (GameObject)Resources.Load("case");
+
 
         //Instanciation d'un personnage
         createUnit("PAUL");
