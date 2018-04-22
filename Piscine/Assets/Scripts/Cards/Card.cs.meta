@@ -5,7 +5,11 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CardMiniaturePrefab: {fileID: 1358456826741856, guid: 6a46dc2e876d9f94a9ef6b323cc745e7,
+      type: 2}
+  - CardPrefab: {fileID: 1295394787649048, guid: 90e962851cdea25438fa6e575e82d43e,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
