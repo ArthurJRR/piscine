@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoardManager {
     private static BoardManager boardInstance = null;
     private List<Unit> listUnits;
+    private List<caseInteraction> listTile;
 
     public static BoardManager getInstance()
     {
@@ -18,6 +19,7 @@ public class BoardManager {
     private BoardManager()
     {
         listUnits = new List<Unit>();
+        listTile = new List<caseInteraction>();
     }
 
     public List<Unit> getListUnits()
@@ -31,6 +33,22 @@ public class BoardManager {
         {
             Debug.Log(u.name);
         }
+    }
+
+    public Unit UnitClicked(int x, int z)
+    {
+        foreach(Unit u in listUnits)
+        {
+            GameObject unitObject = u.gameObject;
+            if(unitObject.transform.position.x == x && unitObject.transform.position.z == z)
+            {
+                Debug.Log(u.name + " has been clicked !");
+                return u;
+            }
+
+        }
+        Debug.Log("Nobody Here");
+        return null;
     }
     
     
