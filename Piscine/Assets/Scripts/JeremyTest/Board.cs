@@ -71,8 +71,8 @@ public class Board : MonoBehaviour {
                     Tile tile = TileObject.AddComponent<Tile>();
                     Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
                     TileObject.transform.position = new Vector3(i, 0, j);
-                    GameObject caseGrille = (GameObject)Instantiate(casePrefab);
-                    caseGrille.transform.position = new Vector3(i,(float) 0.51, j);
+                    /*GameObject caseGrille = (GameObject)Instantiate(casePrefab);
+                    caseGrille.transform.position = new Vector3(i,(float) 0.51, j);*/
                 }
                 if (creaTile == 1)
                 {
@@ -81,8 +81,8 @@ public class Board : MonoBehaviour {
                     Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
                     float ztile0 = (float)-0.125;
                     TileObject.transform.position = new Vector3(i, ztile0, j);
-                    GameObject caseGrille = (GameObject)Instantiate(casePrefab);
-                    caseGrille.transform.position = new Vector3(i, (float)0.26, j);
+                    /*GameObject caseGrille = (GameObject)Instantiate(casePrefab);
+                    caseGrille.transform.position = new Vector3(i, (float)0.26, j);*/
                 }
                 if (creaTile == 2)
                 {
@@ -91,8 +91,8 @@ public class Board : MonoBehaviour {
                     Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
                     float ztile1 = (float)-0.25;
                     TileObject.transform.position = new Vector3(i, ztile1, j);
-                    GameObject caseGrille = (GameObject)Instantiate(casePrefab);
-                    caseGrille.transform.position = new Vector3(i, (float)0.012, j);
+                    /*GameObject caseGrille = (GameObject)Instantiate(casePrefab);
+                    caseGrille.transform.position = new Vector3(i, (float)0.012, j);*/
                 }
                 if (creaTile == 3)
                 {
@@ -101,8 +101,8 @@ public class Board : MonoBehaviour {
                     Tile.coordinate = new Vector2(i, j); // utilité qui reste a prouver
                     float ztile2 = (float)-0.375;
                     TileObject.transform.position = new Vector3(i, ztile2, j);
-                    GameObject caseGrille = (GameObject)Instantiate(casePrefab);
-                    caseGrille.transform.position = new Vector3(i,(float) -0.23, j);
+                    /*GameObject caseGrille = (GameObject)Instantiate(casePrefab);
+                    caseGrille.transform.position = new Vector3(i,(float) -0.23, j);*/
                 }
 
 
