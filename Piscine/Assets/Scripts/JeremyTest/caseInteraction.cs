@@ -16,8 +16,14 @@ public class caseInteraction : MonoBehaviour {
     private void OnMouseExit()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        {
             r.enabled = false;
+            Color color1 = new Color32(189, 177, 79,255);
+            r.material.color = color1;
+        }
         GetComponent<Renderer>().enabled = true;
+        /*foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            r.material.color = Color.green;*/
     }
 
     private void OnMouseDown()
@@ -28,5 +34,12 @@ public class caseInteraction : MonoBehaviour {
         Debug.Log("x = " + this.gameObject.transform.position.x + "y = " + this.gameObject.transform.position.z);
 
         BoardManager.getInstance().UnitClicked(x, z);
+        movementPrevison();
+    }
+
+    public void movementPrevison()
+    {
+        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            r.material.color = Color.red;
     }
 }
