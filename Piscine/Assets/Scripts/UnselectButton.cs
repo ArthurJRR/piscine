@@ -15,7 +15,7 @@ public class UnselectButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        button.onClick.AddListener(HandleClick);
+        //button.onClick.AddListener(HandleClick);
 	}
 
     public void setup(Item currentItem, DeckScrollList currentScrollList)
@@ -28,8 +28,8 @@ public class UnselectButton : MonoBehaviour {
         scrollList = currentScrollList;
     }
 
-    public void HandleClick()
+    /*public void HandleClick()
     {
         scrollList.TryTranserItemToOtherDeck(item);
-    }
+    }*/
 }

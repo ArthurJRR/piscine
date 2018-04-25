@@ -26,7 +26,7 @@ public class DeckScrollList : MonoBehaviour {
 
     public void RefreshDisplay()
     {
-        RemoveButtons();
+        //RemoveButtons();
         AddButtons();
     }
 
@@ -43,7 +43,7 @@ public class DeckScrollList : MonoBehaviour {
         }
     }
 
-    private void RemoveButtons()
+    /*private void RemoveButtons()
     {
         while (contentPanel.childCount > 0)
         {
@@ -75,5 +75,5 @@ public class DeckScrollList : MonoBehaviour {
                 deckList.itemList.RemoveAt(i);
             }
         }
-    }
+    }*/
 }
