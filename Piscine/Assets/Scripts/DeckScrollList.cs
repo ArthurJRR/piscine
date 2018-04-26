@@ -15,7 +15,9 @@ public class Item
 public class DeckScrollList : MonoBehaviour {
 
     public List<Item> itemList;
-    public Transform contentPanel;
+    public Transform generalPannel;
+    public Transform adjuvantsPannel;
+    public Transform cardsPannel;
     public DeckScrollList otherDeck;
     public SimpleObjectPool buttonObjectPool;
 
@@ -26,7 +28,7 @@ public class DeckScrollList : MonoBehaviour {
 
     public void RefreshDisplay()
     {
-        //RemoveButtons();
+        RemoveButtons();
         AddButtons();
     }
 
@@ -36,18 +38,40 @@ public class DeckScrollList : MonoBehaviour {
         {
             Item item = itemList[i];
             GameObject newButton = buttonObjectPool.GetObject();
-            newButton.transform.SetParent(contentPanel);
+
+            switch (item.numberOrType)
+            {
+                case "G":
+                    newButton.transform.SetParent(generalPannel);
+                    break;
+                case "A":
+                    newButton.transform.SetParent(adjuvantsPannel);
+                    break;
+                default:
+                    newButton.transform.SetParent(cardsPannel);
+                    break;
+            }
 
             UnselectButton unselectButton = newButton.GetComponent<UnselectButton>();
             unselectButton.setup(item, this);
         }
     }
 
-    /*private void RemoveButtons()
+    private void RemoveButtons()
     {
-        while (contentPanel.childCount > 0)
+        while (generalPannel.childCount > 0)
         {
-            GameObject toRemove = transform.GetChild(0).gameObject;
+            GameObject toRemove = generalPannel.transform.GetChild(0).gameObject;
+            buttonObjectPool.ReturnObject(toRemove);
+        }
+        while (adjuvantsPannel.childCount > 0)
+        {
+            GameObject toRemove = adjuvantsPannel.transform.GetChild(0).gameObject;
+            buttonObjectPool.ReturnObject(toRemove);
+        }
+        while (cardsPannel.childCount > 0)
+        {
+            GameObject toRemove = cardsPannel.transform.GetChild(0).gameObject;
             buttonObjectPool.ReturnObject(toRemove);
         }
     }
@@ -75,5 +99,5 @@ public class DeckScrollList : MonoBehaviour {
                 deckList.itemList.RemoveAt(i);
             }
         }
-    }*/
+    }
 }
