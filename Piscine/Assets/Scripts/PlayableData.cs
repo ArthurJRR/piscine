@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CharacterData  {
-
-    public string name;
-    public CardData[] cards;
-
+public class PlayableData {
+    public FactionData[] factions;
 }

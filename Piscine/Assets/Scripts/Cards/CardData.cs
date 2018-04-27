@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class CardData {
     public string title;
-    public string image;
     public string description;
+    public string image;
 }

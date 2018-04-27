@@ -19,7 +19,7 @@ public class SelectFactionButton : MonoBehaviour
     public void Setup(FactionData faction)
     {
         this.factionData = faction;
-        buttonText.text = faction.factionName;
+        buttonText.text = faction.name;
     }
 
     // Update is called once per frame

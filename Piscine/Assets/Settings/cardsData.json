@@ -1,15 +1,16 @@
 {"factions":[
-	{"name":"Ego", "characters":[
+	{"name":"Ego", "generals":[
 		{"name":"Lysandre", "cards":[
 			{"title":"You Win", "description":"Self Explanatory", "image":"win.png"},
 			{"title":"Lys", "description":"Everyone love lys flowers", "image":"lys.png"}
-		]},
+		]}
+	], "adjuvants":[
 		{"name":"Bob", "cards":[
 			{"title":"Bob1", "description":"Everyone love Bob2", "image":"bob1.png"},
 			{"title":"Bob2", "description":"Everyone love Bob2", "image":"bob2.png"}
 		]}
 	]},
-	{"name":"Milice", "characters":[
+	{"name":"Milice", "generals":[
 		{"name":"Prose", "cards":[
 			{"title":"Try Hard", "description":"If you lose while having this card in your deck/hand/discard, restart the game before you lose", "image":"tryHard.png"},
 			{"title":"Rose", "description":"Everyone love rose flowers", "image":"rose.png"}

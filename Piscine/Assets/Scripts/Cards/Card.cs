@@ -9,9 +9,9 @@ public class Card : MonoBehaviour
 
     public GameObject CardMiniaturePrefab;
     public GameObject CardPrefab;
-    private string title;
-    private string image;
-    private string description;
+    public string title;
+    public string description;
+    public string image;
 
     public Card(GameObject cardMiniaturePrefab, GameObject cardPrefab, string title, string image, string description)
     {
