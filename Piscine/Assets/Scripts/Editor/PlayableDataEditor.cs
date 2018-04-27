@@ -8,7 +8,7 @@ public class PlayableDataEditor : EditorWindow
 {
     public PlayableData playableData;
 
-    private string playableDataProjectFilePath = "/Settings/cardsData.json";
+    private string playableDataProjectFilePath = "/Settings/PlayableData.json";
 
     [MenuItem("Window/Playable Data Editor")]
     private static void Init()

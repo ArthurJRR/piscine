@@ -15,6 +15,7 @@ public class Item
 public class DeckScrollList : MonoBehaviour {
 
     public List<Item> itemList;
+    public Transform factionPannel;
     public Transform generalPannel;
     public Transform adjuvantsPannel;
     public Transform cardsPannel;
@@ -41,6 +42,9 @@ public class DeckScrollList : MonoBehaviour {
 
             switch (item.numberOrType)
             {
+                case "F":
+                    newButton.transform.SetParent(factionPannel);
+                    break;
                 case "G":
                     newButton.transform.SetParent(generalPannel);
                     break;
@@ -59,6 +63,11 @@ public class DeckScrollList : MonoBehaviour {
 
     private void RemoveButtons()
     {
+        while (factionPannel.childCount > 0)
+        {
+            GameObject toRemove = factionPannel.transform.GetChild(0).gameObject;
+            buttonObjectPool.ReturnObject(toRemove);
+        }
         while (generalPannel.childCount > 0)
         {
             GameObject toRemove = generalPannel.transform.GetChild(0).gameObject;

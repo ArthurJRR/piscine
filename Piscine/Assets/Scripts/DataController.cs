@@ -7,7 +7,7 @@ using System.IO;
 public class DataController : MonoBehaviour {
 
     public DeckData[] allDeckData;
-    private string materialsDataFileName = "cardsData.json";
+    private string materialsDataFileName = "PlayableData.json";
 
 
     // Use this for initialization
