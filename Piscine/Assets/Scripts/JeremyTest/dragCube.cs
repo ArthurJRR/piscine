@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dragCube : MonoBehaviour {
+public class DragCube : MonoBehaviour {
 
     Vector3 dist;
     float posX;

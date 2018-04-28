@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class test : MonoBehaviour {
+public class InitGame : MonoBehaviour {
 
     public string testTrigger = "z";
     public Board board;

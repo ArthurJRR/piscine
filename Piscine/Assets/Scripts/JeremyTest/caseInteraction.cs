@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class caseInteraction : MonoBehaviour {
+public class CaseInteraction : MonoBehaviour {
 
-    
+    public List<CaseInteraction> listNeighbour;
+
+    public List<CaseInteraction> getListNeighbour()
+    {
+        return listNeighbour;
+    }
 
     private void OnMouseOver()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
             r.enabled = true;
-
     }
 
     private void OnMouseExit()

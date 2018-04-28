@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Map : MonoBehaviour {
+//cette classe a pour ut de dans le futur gérer plusieur map
+
+public class Map {
 
     public int[,] map1 = new int[9, 9] { { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
                                          { 1, 1, 1, 1, 1, 1, 1, 1, 1 },
@@ -13,14 +15,4 @@ public class Map : MonoBehaviour {
                                          { 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                                          { 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 
-    
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
