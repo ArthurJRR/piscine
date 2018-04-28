@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisableableButton : MonoBehaviour
+public class DisableableButton : IDeckBuildingButton
 {
-    public Button button;
-    public Text buttonText;
     private int pushNb; //Number of push before the button get disabled
+    private IPlayableData data;
 
-    private FactionData faction;
-    private CharacterData character;
-    private CardData card;
+    private SelectionPanel selectionPanel;
 
     // Use this for initialization
     void Start()
@@ -19,23 +16,21 @@ public class DisableableButton : MonoBehaviour
 
     }
 
-    public void Setup(FactionData faction)
+    public void Setup(IPlayableData data, SelectionPanel panel)
     {
-        this.faction = faction;
-        buttonText.text = faction.name;
+        this.data = data;
+        buttonText.text = data.name;
         this.pushNb = 1;
+
+        selectionPanel = panel;
     }
-    public void Setup(CharacterData character)
+    public void Setup(IPlayableData data, SelectionPanel panel, int pushNb)
     {
-        this.character = character;
-        buttonText.text = character.name;
-        this.pushNb = 1;
-    }
-    public void Setup(CardData card, int pushNb)
-    {
-        this.card = card;
-        buttonText.text = card.title;
+        this.data = data;
+        buttonText.text = data.name;
         this.pushNb = pushNb;
+
+        selectionPanel = panel;
     }
 
     // Update is called once per frame
@@ -47,9 +42,10 @@ public class DisableableButton : MonoBehaviour
     void HandleClick()
     {
         pushNb--;
+        selectionPanel.TryTransferToDeck(item);
         if (pushNb == 0)
         {
-            button.interactable = false;
+            //button.interactable = false;
         }
     }
 }
