@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoardManager {
     private static BoardManager boardInstance = null;
     private List<Unit> listUnits;
-    private List<caseInteraction> listTile;
+    private List<CaseInteraction> listTile;
 
     public static BoardManager getInstance()
     {
@@ -19,13 +19,19 @@ public class BoardManager {
     private BoardManager()
     {
         listUnits = new List<Unit>();
-        listTile = new List<caseInteraction>();
+        listTile = new List<CaseInteraction>();
     }
 
     public List<Unit> getListUnits()
     {
         return listUnits;
     }
+
+    public List<CaseInteraction> getListTile()
+    {
+        return listTile;
+    }
+
 
     public void displayUnitList()
     {
