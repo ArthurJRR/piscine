@@ -4,14 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class Item
-{
-    public string itemName;
-    public Image itemImage;
-    public string numberOrType;
-}
-
 public class DeckScrollList : MonoBehaviour {
 
     public List<Item> itemList;
@@ -94,7 +86,7 @@ public class DeckScrollList : MonoBehaviour {
         otherDeck.RefreshDisplay();
     }
 
-    private void AddItem(Item itemToAdd, DeckScrollList deckList)
+    public void AddItem(Item itemToAdd, DeckScrollList deckList)
     {
         deckList.itemList.Add(itemToAdd);
     }

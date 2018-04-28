@@ -93,7 +93,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 114968113930709794}
   buttonText: {fileID: 114745470029545342}
-  pushNb: 0
+  image: 
+  numberOrType: {fileID: 0}
+  item:
+    name: 
+    description: 
+    image: 
+    numberOrType: 
+  selectionPanel: {fileID: 0}
 --- !u!114 &114891622439941750
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 114429701046177990}
-  nameLabel: {fileID: 114905844359891562}
-  iconImage: {fileID: 114781295480224398}
+  buttonText: {fileID: 114905844359891562}
+  sprite: {fileID: 0}
   numberOrType: {fileID: 114672655319298866}
 --- !u!114 &114415374678446380
 MonoBehaviour:

@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UnselectButton : MonoBehaviour {
+public class UnselectButton : IDeckBuildingButton {
 
-    public Button button;
-    public Text nameLabel;
-    public Image iconImage;
-    public Text numberOrType;
-
-    private Item item;
     private DeckScrollList scrollList;
 
 	// Use this for initialization
@@ -21,8 +15,8 @@ public class UnselectButton : MonoBehaviour {
     public void setup(Item currentItem, DeckScrollList currentScrollList)
     {
         item = currentItem;
-        nameLabel.text = item.itemName;
-        iconImage = item.itemImage;
+        buttonText.text = item.name;
+        image = item.image;
         numberOrType.text = item.numberOrType;
 
         scrollList = currentScrollList;
