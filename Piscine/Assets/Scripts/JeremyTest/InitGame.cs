@@ -8,8 +8,8 @@ public class InitGame : MonoBehaviour {
     public Board board;
     public List<Unit> list;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	    GameObject boardobject = new GameObject("Board");
         boardobject.transform.parent = transform; //le parent du boardobject  est le transform sur 
         //lequ'elle est appliquer le scripte ici jeu

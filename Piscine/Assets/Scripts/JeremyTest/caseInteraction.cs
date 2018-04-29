@@ -11,6 +11,7 @@ public class CaseInteraction : MonoBehaviour {
         return listNeighbour;
     }
 
+
     private void OnMouseOver()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
@@ -20,7 +21,7 @@ public class CaseInteraction : MonoBehaviour {
     private void OnMouseExit()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        {
+        {   
             r.enabled = false;
             Color color1 = new Color32(189, 177, 79,255);
             r.material.color = color1;
