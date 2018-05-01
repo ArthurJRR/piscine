@@ -17,17 +17,9 @@ public class Board : MonoBehaviour {
     public GameObject casePrefab;
     //public int [,] Map = Map.map1;
     Map map = new Map();
-    public List<GameObject> ListTile; //liste de toute les tiles du plateau
 
     // Use this for initialization
-
-    private void fillList(GameObject TileObject)
-    {
-        ListTile.Add(TileObject);
-    }
-
     void Start () {
-        ListTile = new List<GameObject>();
         Instantiate(WaterJeu);
         int id = 0;
 
@@ -42,38 +34,24 @@ public class Board : MonoBehaviour {
                 {
                     GameObject TileObject = (GameObject)Instantiate(DirtPrefab);
                     TileObject.transform.position = new Vector3(i, 0, j);
-                    string name = "tile" + i + j;
-                    TileObject.name = name;
-                    fillList(TileObject);
-
-
                 }
                 if (creaTile == 1)
                 {
                     GameObject TileObject = (GameObject)Instantiate(tile0Prefab);
                     float ztile0 = (float)-0.125;
                     TileObject.transform.position = new Vector3(i, ztile0, j);
-                    string name = "tile" + i + j;
-                    TileObject.name = name;
-                    fillList(TileObject);
                 }
                 if (creaTile == 2)
                 {
                     GameObject TileObject = (GameObject)Instantiate(tile1Prefab);
                     float ztile1 = (float)-0.25;
                     TileObject.transform.position = new Vector3(i, ztile1, j);
-                    string name = "tile" + i + j;
-                    TileObject.name = name;
-                    fillList(TileObject);
                 }
                 if (creaTile == 3)
                 {
                     GameObject TileObject = (GameObject)Instantiate(tile2Prefab);
                     float ztile2 = (float)-0.375;
                     TileObject.transform.position = new Vector3(i, ztile2, j);
-                    string name = "tile" + i + j;
-                    TileObject.name = name;
-                    fillList(TileObject);
                 }
             }
         }
