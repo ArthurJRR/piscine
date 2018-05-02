@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Board : MonoBehaviour {
 
-    public int size = 8; // fait actuelement du 9x9
+    public int size = 9; // fait actuelement du 9x9
     //public Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
     public GameObject DirtPrefab;
     public GameObject Water1Prefab;
@@ -31,9 +31,9 @@ public class Board : MonoBehaviour {
         int id = 0;
 
 
-        for (int i = 0; i <= size; i++)
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 0; j <= size; j++)
+            for (int j = 0; j < size; j++)
             {
                 id++;
                 int creaTile = map.map1[j, i];
@@ -74,11 +74,18 @@ public class Board : MonoBehaviour {
                 }
             }
         }
-        for (int i = 0; i <= size; i++)
+        int pos = 0;
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 0; j <= size; j++)
+            for (int j = 0; j < size; j++)
             {
-
+                if (i-1 > 0)
+                {
+                    //ListTile[pos].transform.Find("case") donne l'enfant case
+                    ListTile[pos].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
+                        .Add(ListTile[i-1+j*size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
+                }
+                pos++;
             }
         }
 
