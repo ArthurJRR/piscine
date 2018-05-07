@@ -85,7 +85,7 @@ public class InitGame : MonoBehaviour {
         int z = Random.Range(0, 8);
         unit.name = n;
         unit.transform.position = new Vector3(x, 1, z);
-
+        unit.transform.Rotate(new Vector3(0, -45, 0));
         BoardManager.getInstance().getListUnits().Add(unit.GetComponent<Unit>());
 
 
