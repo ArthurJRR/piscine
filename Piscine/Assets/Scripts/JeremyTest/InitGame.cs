@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class InitGame : MonoBehaviour {
 
     public string testTrigger = "z";
+    public string testPhase = "p";
     public Board board;
     public List<Unit> list;
 
@@ -29,11 +30,10 @@ public class InitGame : MonoBehaviour {
         //Instanciation d'un personnage
         createUnit("PAUL");
         createUnit("GARLAND");
-        /*createUnit("Joueur 1");
-        createUnit("Joueur 1");
-        createUnit("Joueur 2");
-        createUnit("Joueur 2");
-        createUnit("Joueur 2");*/
+
+        //setFirstPhase
+        BoardManager boardManager = BoardManager.getInstance();
+
     }
 	
 	// Update is called once per frame
@@ -46,25 +46,38 @@ public class InitGame : MonoBehaviour {
 
         if(Input.GetKeyDown(testTrigger))
         {
-            foreach (Unit u in BoardManager.getInstance().getListUnits())
+            if(BoardManager.getInstance().getActivePhase() is PlayPhase)
             {
-                u.SetHp(u.GetHp() - 2);
-                if(u.GetHp() < 0)
+                foreach (Unit u in BoardManager.getInstance().getListUnits())
                 {
-                    u.die();
-                    //u.gameObject.SetActive(false);
-                    Destroy(u);
-                    list.Add(u);
-                    
+                    u.SetHp(u.GetHp() - 2);
+                    if (u.GetHp() < 0)
+                    {
+                        u.die();
+                        //u.gameObject.SetActive(false);
+                        Destroy(u);
+                        list.Add(u);
+
+                    }
+                }
+                foreach (Unit u2 in list)
+                {
+                    BoardManager.getInstance().getListUnits().Remove(u2);
+                    u2.gameObject.SetActive(false);
+                    Destroy(u2.gameObject);
                 }
             }
-            foreach(Unit u2 in list)
+            else
             {
-                BoardManager.getInstance().getListUnits().Remove(u2);
-                u2.gameObject.SetActive(false);
-                Destroy(u2.gameObject);
-            }   
+                Debug.Log("You can't do that because you are not in PlayPhase");
+            }
         }
+        if(Input.GetKeyDown(testPhase))
+        {
+            BoardManager.getInstance().getActivePhase().doAction();
+            BoardManager.getInstance().changeActivePhase();
+        }
+      
 	}
 
 

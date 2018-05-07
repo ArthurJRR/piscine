@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BoardManager {
+
     private static BoardManager boardInstance = null;
     private List<Unit> listUnits;
     private List<CaseInteraction> listTile;
+
+    //Phases
+    private DrawPhase drawPhase = new DrawPhase();
+    private PlayPhase playPhase = new PlayPhase();
+    private EndPhase endPhase = new EndPhase();
+    private IPhase activePhase;
 
     public static BoardManager getInstance()
     {
@@ -20,6 +27,7 @@ public class BoardManager {
     {
         listUnits = new List<Unit>();
         listTile = new List<CaseInteraction>();
+        activePhase = drawPhase;
     }
 
     public List<Unit> getListUnits()
@@ -32,6 +40,34 @@ public class BoardManager {
         return listTile;
     }
 
+    // Phases
+
+    public IPhase getActivePhase()
+    {
+        return activePhase;
+    }
+
+    public void changeActivePhase()
+    {
+        this.activePhase = activePhase.getNextPhase();
+    }
+
+    public IPhase getDrawPhase()
+    {
+        return drawPhase;
+    }
+
+    public IPhase getPlayPhase()
+    {
+        return playPhase;
+    }
+
+    public IPhase getEndPhase()
+    {
+        return endPhase;
+    }
+
+    //Methods
 
     public void displayUnitList()
     {
