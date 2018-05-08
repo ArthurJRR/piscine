@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class PlayableData {
-    public FactionData[] factions;
+
+    public string name;
+    public string description;
+    public string image;
+    public string numberOrType;
 }

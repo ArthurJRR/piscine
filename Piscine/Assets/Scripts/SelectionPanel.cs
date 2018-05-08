@@ -5,7 +5,7 @@ using System.IO;
 
 public class SelectionPanel : MonoBehaviour {
 
-    private PlayableData playableData;
+    private PlayableDataJSON playableData;
     private string playableDataProjectFilePath = "/Settings/PlayableData.json";
 
     public SimpleObjectPool disableableButtonObjectPool;
@@ -20,7 +20,7 @@ public class SelectionPanel : MonoBehaviour {
         if (File.Exists(filePath))
         {
             string dataAsJSON = File.ReadAllText(filePath);
-            playableData = JsonUtility.FromJson<PlayableData>(dataAsJSON);
+            playableData = JsonUtility.FromJson<PlayableDataJSON>(dataAsJSON);
         }
         else
         {
@@ -39,7 +39,7 @@ public class SelectionPanel : MonoBehaviour {
 	}
 
 
-    public void DisplayDisableableButtons(IPlayableData[] playableList)
+    public void DisplayDisableableButtons(PlayableData[] playableList)
     {
         for (int i = 0; i < playableList.Length; i++)
         {

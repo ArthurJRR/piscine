@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Item: IPlayableData
+public class Item: PlayableData
 {
     /*public string itemName;
     public Sprite sprite;
