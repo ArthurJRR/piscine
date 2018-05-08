@@ -82,8 +82,26 @@ public class Board : MonoBehaviour {
                 if (i-1 > 0)
                 {
                     //ListTile[pos].transform.Find("case") donne l'enfant case
-                    ListTile[pos].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
+                    ListTile[i+j*size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
                         .Add(ListTile[i-1+j*size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
+                }
+                if (j - 1 > 0)
+                {
+                    //ListTile[pos].transform.Find("case") donne l'enfant case
+                    ListTile[i + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
+                        .Add(ListTile[i + (j-1)* size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
+                }
+                if (i+1 < size)
+                {
+                    //ListTile[pos].transform.Find("case") donne l'enfant case
+                    ListTile[i + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
+                        .Add(ListTile[i+1 + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
+                }
+                if (j + 1 < size)
+                {
+                    //ListTile[pos].transform.Find("case") donne l'enfant case
+                    ListTile[i + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
+                        .Add(ListTile[i + (j + 1) * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
                 }
                 pos++;
             }
