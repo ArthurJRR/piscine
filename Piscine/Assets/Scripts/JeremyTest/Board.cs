@@ -74,18 +74,19 @@ public class Board : MonoBehaviour {
                 }
             }
         }
-        int pos = 0;
+
+        //cette double boucle créer la liste des voisin pour chaque case
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
             {
-                if (i-1 > 0)
+                if (i-1 >= 0)
                 {
                     //ListTile[pos].transform.Find("case") donne l'enfant case
                     ListTile[i+j*size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
                         .Add(ListTile[i-1+j*size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
                 }
-                if (j - 1 > 0)
+                if (j - 1 >= 0)
                 {
                     //ListTile[pos].transform.Find("case") donne l'enfant case
                     ListTile[i + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
@@ -103,7 +104,6 @@ public class Board : MonoBehaviour {
                     ListTile[i + j * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>().getListNeighbour()
                         .Add(ListTile[i + (j + 1) * size].transform.Find("case").gameObject.GetComponent<CaseInteraction>());
                 }
-                pos++;
             }
         }
 
