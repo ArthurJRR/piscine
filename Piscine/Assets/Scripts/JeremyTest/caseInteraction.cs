@@ -5,6 +5,8 @@ using UnityEngine;
 public class CaseInteraction : MonoBehaviour {
 
     public List<CaseInteraction> listNeighbour;
+    public bool callred = false;
+
 
     public List<CaseInteraction> getListNeighbour()
     {
@@ -34,7 +36,7 @@ public class CaseInteraction : MonoBehaviour {
     private void OnMouseUp()
     {
         //quand on a fini de cliquer les cases adjacente devienne normal
-        movementCancellation(2,1);
+        movementCancellation();
 
     }
 
@@ -48,75 +50,67 @@ public class CaseInteraction : MonoBehaviour {
         //on voit l'unité cliqué
         BoardManager.getInstance().UnitClicked(x, z);
         //code pour voir les case adjacente en rouge
-        movementPrevison(2,1);
+        movementPrevison(4);
     }
 
-    public void movementPrevison(int pm,int depth)
+    public void movementPrevison(int pm)
     {
-        // quand on clique les case adjacente devienne rouge en fonction du nombre de pm
-        if(pm > 0)
+        //on initialise les variable nécssaire a la fonction
+        Board.caseVisited.Add(this);
+        int counter = 0;
+        foreach (CaseInteraction c in listNeighbour)
         {
-            if (depth == pm)
+            Board.caseToVisite.Add(c);
+        }
+        List<CaseInteraction> listTemp = new List<CaseInteraction>();
+        while (counter < pm) //tant qu'on pourrais encore se déplacé
+        {
+            foreach (CaseInteraction c in Board.caseToVisite)
             {
-                foreach (CaseInteraction c in getListNeighbour())
+                if (!Board.caseVisited.Contains(c) & BoardManager.getInstance().UnitClicked((int)c.transform.position.x, (int)c.transform.position.z) == null)
+                    //on verifie que la case a visite est visitable et n'est pas déjà visite
                 {
+                    Board.caseVisited.Add(c);
                     foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
                     {
                         r.material.color = Color.red;
                         r.enabled = true;
                     }
-                }
-            }
-            else
-            {
-                foreach (CaseInteraction c in getListNeighbour())
-                {
-                    foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
+                    foreach (CaseInteraction ctv in c.listNeighbour)
+                        // on prépare les prochaine case a vistié
                     {
-                        r.material.color = Color.red;
-                        r.enabled = true;
+                        if (!listTemp.Contains(ctv) & !Board.caseVisited.Contains(ctv))
+                        {
+                            listTemp.Add(ctv);
+                        }
                     }
-                    c.movementPrevison(pm, depth + 1);
                 }
             }
-
+            //puis on remplie la list temporaire de la liste a visité après l'avoir vidé
+            Board.caseToVisite.Clear();
+            foreach (CaseInteraction cta in listTemp)
+            {
+                Board.caseToVisite.Add(cta);
+            }
+            listTemp.Clear();
+            counter++;
         }
-        
+        Board.caseToVisite.Clear();
+
     }
 
-    public void movementCancellation(int pm, int depth)
+    public void movementCancellation()
     {
-        if(pm > 0)
+        foreach (CaseInteraction c in Board.caseVisited)
         {
-            if(depth == pm)
+            foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
             {
-                foreach (CaseInteraction c in getListNeighbour())
-                {
-                    foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
-                    {
-                        r.enabled = false;
-                        Color color1 = new Color32(189, 177, 79, 255);
-                        r.material.color = color1;
-                    }
-                    c.GetComponent<Renderer>().enabled = true;
-                }
+                r.enabled = false;
+                Color color1 = new Color32(189, 177, 79, 255);
+                r.material.color = color1;
             }
-            else
-            {
-                foreach (CaseInteraction c in getListNeighbour())
-                {
-                    foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
-                    {
-                        r.enabled = false;
-                        Color color1 = new Color32(189, 177, 79, 255);
-                        r.material.color = color1;
-                    }
-                    c.GetComponent<Renderer>().enabled = true;
-                    c.movementCancellation(pm, depth + 1);
-                }
-            }
-
-
+            c.GetComponent<Renderer>().enabled = true;
         }
+        Board.caseVisited.Clear();
     }
 }
