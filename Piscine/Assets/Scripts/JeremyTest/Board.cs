@@ -19,6 +19,9 @@ public class Board : MonoBehaviour {
     Map map = new Map();
     public List<GameObject> ListTile; //liste de toute les tiles du plateau
 
+    public static List<CaseInteraction> caseVisited = new List<CaseInteraction>();//list des case visite par la fonction caseInteraction.movementprevision
+    public static List<CaseInteraction> caseToVisite = new List<CaseInteraction>();// list des case a visite par la fonction caseInteraction.movementprevision
+
     private void fillList(GameObject TileObject)
     {
         ListTile.Add(TileObject);
