@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class DeckScrollList : MonoBehaviour {
 
-    public List<Item> itemList;
+    public List<PlayableData> playableDataList;
     public Transform factionPannel;
     public Transform generalPannel;
     public Transform adjuvantsPannel;
@@ -27,12 +27,12 @@ public class DeckScrollList : MonoBehaviour {
 
     private void AddButtons()
     {
-        for ( int i=0; i < itemList.Count; i++)
+        for ( int i=0; i < playableDataList.Count; i++)
         {
-            Item item = itemList[i];
+            PlayableData playableData = playableDataList[i];
             GameObject newButton = buttonObjectPool.GetObject();
 
-            switch (item.numberOrType)
+            switch (playableData.numberOrType)
             {
                 case "F":
                     newButton.transform.SetParent(factionPannel);
@@ -49,7 +49,7 @@ public class DeckScrollList : MonoBehaviour {
             }
 
             UnselectButton unselectButton = newButton.GetComponent<UnselectButton>();
-            unselectButton.setup(item, this);
+            unselectButton.setup(playableData, this);
         }
     }
 
@@ -77,27 +77,27 @@ public class DeckScrollList : MonoBehaviour {
         }
     }
 
-    public void TryTranserItemToOtherDeck(Item item)
+    public void TryTranserPlayableDataToOtherDeck(PlayableData playableData)
     {
-        AddItem(item, otherDeck);
-        RemoveItem(item, this);
+        AddPlayableData(playableData, otherDeck);
+        RemovePlayableData(playableData, this);
 
         RefreshDisplay();
         otherDeck.RefreshDisplay();
     }
 
-    public void AddItem(Item itemToAdd, DeckScrollList deckList)
+    public void AddPlayableData(PlayableData playableDataToAdd, DeckScrollList deckList)
     {
-        deckList.itemList.Add(itemToAdd);
+        deckList.playableDataList.Add(playableDataToAdd);
     }
 
-    private void RemoveItem (Item itemToRemove, DeckScrollList deckList)
+    private void RemovePlayableData(PlayableData playableDataToRemove, DeckScrollList deckList)
     {
-        for (int i= deckList.itemList.Count-1; i>=0; i--)
+        for (int i= deckList.playableDataList.Count-1; i>=0; i--)
         {
-            if (deckList.itemList[i] == itemToRemove)
+            if (deckList.playableDataList[i] == playableDataToRemove)
             {
-                deckList.itemList.RemoveAt(i);
+                deckList.playableDataList.RemoveAt(i);
             }
         }
     }

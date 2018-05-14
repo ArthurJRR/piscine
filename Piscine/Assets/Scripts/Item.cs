@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Item: PlayableData
+public class toBeRemovedItem: PlayableData
 {
     /*public string itemName;
     public Sprite sprite;
@@ -15,11 +15,11 @@ public class Item: PlayableData
         this.sprite = sprite;
         this.numberOrType = numberOrType;
     }*/
-    public Item(string name, string description, string image, string numberOrType)
+    /*public toBeRemovedItem(string name, string description, string image, string numberOrType)
     {
         this.name = name;
         this.description = description;
         this.image = image;
         this.numberOrType = numberOrType;
     }
-}
+}*/

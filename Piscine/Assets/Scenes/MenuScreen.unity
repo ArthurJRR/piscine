@@ -2954,27 +2954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f769b9d23de1542888f800402d787f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - name: 
-    description: 
-    image: 
-    numberOrType: G
-  - name: 
-    description: 
-    image: 
-    numberOrType: A
-  - name: 
-    description: 
-    image: 
-    numberOrType: A
-  - name: 
-    description: 
-    image: 
-    numberOrType: A
-  - name: 
-    description: 
-    image: 
-    numberOrType: F
+  playableDataList: []
   factionPannel: {fileID: 1216181439}
   generalPannel: {fileID: 1878344833}
   adjuvantsPannel: {fileID: 459062806}
@@ -5269,12 +5249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f769b9d23de1542888f800402d787f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - name: Ganon
+  playableDataList:
+  - name: Bowser
     description: 
     image: 
     numberOrType: G
-  - name: Bowser
+  - name: Goomba
     description: 
     image: 
     numberOrType: A

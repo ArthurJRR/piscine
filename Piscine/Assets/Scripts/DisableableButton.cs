@@ -41,11 +41,14 @@ public class DisableableButton : IDeckBuildingButton
 
     void HandleClick()
     {
-        pushNb--;
-        selectionPanel.TryTransferToDeck(item);
-        if (pushNb == 0)
+        if (pushNb > 0)
         {
-            //button.interactable = false;
+            selectionPanel.TryTransferToDeck(playableData);
         }
+        else
+        {
+            button.interactable = false;
+        }
+        pushNb--;
     }
 }

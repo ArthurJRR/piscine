@@ -10,6 +10,6 @@ public class IDeckBuildingButton : MonoBehaviour {
     public string image;
     public Text numberOrType;
 
-    public Item item;
+    public PlayableData playableData;
 
 }

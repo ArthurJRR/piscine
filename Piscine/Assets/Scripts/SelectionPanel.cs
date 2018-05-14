@@ -43,7 +43,7 @@ public class SelectionPanel : MonoBehaviour {
     {
         for (int i = 0; i < playableList.Length; i++)
         {
-            Item item = new Item(playableList[i].name, playableList[i].description, playableList[i].image, playableList[i].numberOrType);
+            PlayableData playableData = new PlayableData(playableList[i].name, playableList[i].description, playableList[i].image, playableList[i].numberOrType);
             GameObject playableButtonGameObject = disableableButtonObjectPool.GetObject();
             //playableButtonGameObjects.Add(playableButtonGameObject);
             playableButtonGameObject.transform.SetParent(playableButtonParent);
@@ -90,9 +90,9 @@ public class SelectionPanel : MonoBehaviour {
 
     }
 
-    public void TryTransferToDeck(Item item)
+    public void TryTransferToDeck(PlayableData playableData)
     {
-        deck.AddItem(item, deck);
+        deck.AddPlayableData(playableData, deck);
         //RemoveItem(item, this);
 
         //RefreshDisplay();

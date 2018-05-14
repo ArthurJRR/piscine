@@ -12,18 +12,18 @@ public class UnselectButton : IDeckBuildingButton {
         button.onClick.AddListener(HandleClick);
 	}
 
-    public void setup(Item currentItem, DeckScrollList currentScrollList)
+    public void setup(PlayableData currentPlayableData, DeckScrollList currentScrollList)
     {
-        item = currentItem;
-        buttonText.text = item.name;
-        image = item.image;
-        numberOrType.text = item.numberOrType;
+        playableData = currentPlayableData;
+        buttonText.text = playableData.name;
+        image = playableData.image;
+        numberOrType.text = playableData.numberOrType;
 
         scrollList = currentScrollList;
     }
 
     public void HandleClick()
     {
-        scrollList.TryTranserItemToOtherDeck(item);
+        scrollList.TryTranserPlayableDataToOtherDeck(playableData);
     }
 }
