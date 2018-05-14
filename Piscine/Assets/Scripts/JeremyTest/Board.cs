@@ -5,6 +5,7 @@ using System.Collections;
 public class Board : MonoBehaviour {
 
     public int size = 9; // fait actuelement du 9x9
+    public int sommetsize = 81;
     //public Dictionary<int, Tile> tiles = new Dictionary<int, Tile>();
     public GameObject DirtPrefab;
     public GameObject Water1Prefab;
@@ -21,6 +22,7 @@ public class Board : MonoBehaviour {
 
     public static List<CaseInteraction> caseVisited = new List<CaseInteraction>();//list des case visite par la fonction caseInteraction.movementprevision
     public static List<CaseInteraction> caseToVisite = new List<CaseInteraction>();// list des case a visite par la fonction caseInteraction.movementprevision
+    
 
     private void fillList(GameObject TileObject)
     {
