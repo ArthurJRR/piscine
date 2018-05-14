@@ -73,7 +73,7 @@ public class CaseInteraction : MonoBehaviour {
                     Board.caseVisited.Add(c);
                     foreach (Renderer r in c.GetComponentsInChildren<Renderer>())
                     {
-                        r.material.color = Color.red;
+                        r.material.color = Color.blue;
                         r.enabled = true;
                     }
                     foreach (CaseInteraction ctv in c.listNeighbour)
@@ -113,4 +113,5 @@ public class CaseInteraction : MonoBehaviour {
         }
         Board.caseVisited.Clear();
     }
+
 }
