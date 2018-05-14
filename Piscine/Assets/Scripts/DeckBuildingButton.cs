@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IDeckBuildingButton : MonoBehaviour {
+public class DeckBuildingButton : MonoBehaviour {
 
     public Button button;
     public Text buttonText;

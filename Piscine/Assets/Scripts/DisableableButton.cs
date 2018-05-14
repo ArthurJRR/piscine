@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DisableableButton : IDeckBuildingButton
 {
     private int pushNb; //Number of push before the button get disabled
-    private IPlayableData data;
+    private PlayableData data;
 
     private SelectionPanel selectionPanel;
 
@@ -16,7 +16,7 @@ public class DisableableButton : IDeckBuildingButton
 
     }
 
-    public void Setup(IPlayableData data, SelectionPanel panel)
+    public void Setup(PlayableData data, SelectionPanel panel)
     {
         this.data = data;
         buttonText.text = data.name;
@@ -24,7 +24,7 @@ public class DisableableButton : IDeckBuildingButton
 
         selectionPanel = panel;
     }
-    public void Setup(IPlayableData data, SelectionPanel panel, int pushNb)
+    public void Setup(PlayableData data, SelectionPanel panel, int pushNb)
     {
         this.data = data;
         buttonText.text = data.name;
@@ -41,11 +41,14 @@ public class DisableableButton : IDeckBuildingButton
 
     void HandleClick()
     {
-        pushNb--;
-        selectionPanel.TryTransferToDeck(item);
-        if (pushNb == 0)
+        if (pushNb > 0)
         {
-            //button.interactable = false;
+            selectionPanel.TryTransferToDeck(playableData);
         }
+        else
+        {
+            button.interactable = false;
+        }
+        pushNb--;
     }
 }

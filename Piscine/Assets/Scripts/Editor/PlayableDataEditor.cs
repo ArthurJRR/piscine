@@ -6,7 +6,7 @@ using System.IO;
 
 public class PlayableDataEditor : EditorWindow
 {
-    public PlayableData playableData;
+    public PlayableDataJSON playableData;
 
     private string playableDataProjectFilePath = "/Settings/PlayableData.json";
 
@@ -53,11 +53,11 @@ public class PlayableDataEditor : EditorWindow
         if (File.Exists(filePath))
         {
             string dataAsJSON = File.ReadAllText(filePath);
-            playableData = JsonUtility.FromJson<PlayableData>(dataAsJSON);
+            playableData = JsonUtility.FromJson<PlayableDataJSON>(dataAsJSON);
         }
         else
         {
-            playableData = new PlayableData();
+            playableData = new PlayableDataJSON();
         }
     }
 	
